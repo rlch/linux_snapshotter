@@ -1,0 +1,15 @@
+FROM --platform=amd64 ubuntu:latest 
+
+ARG RESOLUTION="1920x1080x24"
+ENV XVFB_RES="${RESOLUTION}"
+ARG XARGS=""
+ENV XVFB_ARGS="${XARGS}"
+
+WORKDIR /usr/bin
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends \
+  libgtk-3-0 libblkid1 liblzma5 mesa-utils \
+  x11-apps imagemagick \
+  xvfb libgl1-mesa-dri
+
+CMD Xvfb :99 -ac -listen tcp -screen 0 "$XVFB_RES" $XVFB_ARGS

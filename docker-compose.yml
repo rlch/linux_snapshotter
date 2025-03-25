@@ -1,0 +1,19 @@
+services:
+  flutter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - snapshotter
+    depends_on:
+      - xvfb
+  xvfb:
+    ports:
+      - 6099:6099
+    build:
+      context: .
+      dockerfile: Dockerfile.xvfb
+    networks:
+      - snapshotter
+networks:
+  snapshotter:
