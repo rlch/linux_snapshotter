@@ -3,13 +3,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - 8089:8080
     networks:
       - snapshotter
     depends_on:
       - xvfb
   xvfb:
-    ports:
-      - 6099:6099
+    expose:
+      - 6069
     build:
       context: .
       dockerfile: Dockerfile.xvfb

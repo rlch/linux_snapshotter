@@ -8,6 +8,7 @@ RUN apt-get update && \
   clang cmake git \
   ninja-build pkg-config \
   libgtk-3-dev liblzma-dev \
+  x11-apps imagemagick \
   libstdc++-12-dev
 RUN apt-get install -y --no-install-recommends \
   curl git unzip xz-utils zip libglu1-mesa

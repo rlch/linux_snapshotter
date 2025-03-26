@@ -1,12 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:linux_snapshotter/server.dart';
 
 Future<void> main() async {
-  final server = await HttpServer.bind(
-    "localhost",
-    8080,
-  );
+  await SnapshotServer().init();
   runApp(const MyApp());
 }
 
